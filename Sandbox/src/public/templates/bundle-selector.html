@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trial Bundles - Trial Monkeys</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/entertainment.css">
+</head>
+<body class="dark-theme">
+    <div class="bundle-container">
+        <!-- Entertainment Bundle -->
+        <div class="bundle-section premium-bundle">
+            <div class="bundle-header">
+                <img src="../images/entertainment-icon.svg" alt="Entertainment" class="bundle-icon">
+                <h2>Entertainment Premium Pack</h2>
+                <span class="price-tag">25 $MONK</span>
+                <span class="savings-badge">Save 60%</span>
+            </div>
+
+            <div class="services-grid">
+                <!-- Netflix -->
+                <div class="service-card">
+                    <img src="https://img.logo.dev/netflix.com" alt="Netflix" class="service-logo">
+                    <div class="service-details">
+                        <h3>Netflix Premium</h3>
+                        <ul class="feature-list">
+                            <li>4K Streaming</li>
+                            <li>4 Screens</li>
+                            <li>30-day trial</li>
+                        </ul>
+                        <div class="success-rate">
+                            <span>Success Rate</span>
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 95%"></div>
+                            </div>
+                            <span>95%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Disney+ -->
+                <div class="service-card">
+                    <img src="https://img.logo.dev/disneyplus.com" alt="Disney+" class="service-logo">
+                    <div class="service-details">
+                        <h3>Disney+</h3>
+                        <ul class="feature-list">
+                            <li>4K HDR</li>
+                            <li>4 Devices</li>
+                            <li>30-day trial</li>
+                        </ul>
+                        <div class="success-rate">
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 92%"></div>
+                            </div>
+                            <span>92%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Spotify -->
+                <div class="service-card">
+                    <img src="https://img.logo.dev/spotify.com" alt="Spotify" class="service-logo">
+                    <div class="service-details">
+                        <h3>Spotify Premium</h3>
+                        <ul class="feature-list">
+                            <li>Ad-free Music</li>
+                            <li>Offline Mode</li>
+                            <li>30-day trial</li>
+                        </ul>
+                        <div class="success-rate">
+                            <div class="progress-bar">
+                                <div class="progress" style="width: 98%"></div>
+                            </div>
+                            <span>98%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bundle-features">
+                <div class="feature">
+                    <span class="emoji">🚀</span>
+                    <h4>One-Click Activation</h4>
+                    <p>Instant access to all services</p>
+                </div>
+                <div class="feature">
+                    <span class="emoji">🛡️</span>
+                    <h4>Auto-Renewal Protection</h4>
+                    <p>Never get charged unexpectedly</p>
+                </div>
+                <div class="feature">
+                    <span class="emoji">💳</span>
+                    <h4>Virtual Cards</h4>
+                    <p>Secure payment method for each trial</p>
+                </div>
+            </div>
+
+            <button class="generate-bundle-btn">
+                Generate Bundle 🎬
+                <span class="btn-monkey">🐒</span>
+            </button>
+        </div>
+
+        <!-- Gaming Bundle -->
+        <div class="bundle-section gaming-bundle">
+            <div class="bundle-header">
+                <img src="../images/gaming-icon.svg" alt="Gaming" class="bundle-icon">
+                <h2>Gaming Master Pack</h2>
+                <span class="price-tag">20 $MONK</span>
+                <span class="savings-badge">Save 45%</span>
+            </div>
+
+            <div class="services-grid">
+                <!-- Game Pass -->
+                <div class="service-card">
+                    <img src="https://img.logo.dev/xbox.com" alt="Xbox" class="service-logo">
+                    <div class="service-details">
+                        <h3>Xbox Game Pass</h3>
+                        <ul class="feature-list">
+                            <li>100+ Games</li>
+                            <li>Xbox Live Gold</li>
+                            <li>14-day trial</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- PlayStation Now -->
+                <div class="service-card">
+                    <img src="https://img.logo.dev/playstation.com" alt="PlayStation" class="service-logo">
+                    <div class="service-details">
+                        <h3>PlayStation Now</h3>
+                        <ul class="feature-list">
+                            <li>700+ Games</li>
+                            <li>Cloud Gaming</li>
+                            <li>14-day trial</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <button class="generate-bundle-btn gaming">
+                Generate Bundle 🎮
+                <span class="btn-monkey">🐒</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Bundle Generation Modal -->
+    <div class="modal" id="generationModal">
+        <div class="modal-content">
+            <h3>Generating Your Bundle 🚀</h3>
+            <div class="generation-progress">
+                <div class="progress-steps">
+                    <div class="step active">
+                        <span class="step-number">1</span>
+                        <span class="step-text">Preparing Resources</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Generating Trials</span>
+                    </div>
+                    <div class="step">
+                        <span class="step-number">3</span>
+                        <span class="step-text">Setting Up Protection</span>
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+            </div>
+            <div class="generation-details">
+                <p class="status-message">Initializing bundle generation...</p>
+                <div class="service-status"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../js/bundle-generator.js"></script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: npm run test
+    environment:
+      - NODE_ENV=test
+      - MONGODB_URI=mongodb://mongodb:27017/trial-junkies-test
+      - REDIS_HOST=redis-test
+      - JWT_SECRET=test_secret
+      - DISCORD_CLIENT_ID=test_discord_id
+      - SOLANA_NETWORK=devnet
+      - MONK_TOKEN_ADDRESS=test_token_address
+    depends_on:
+      - mongodb-test
+      - redis-test
+    volumes:
+      - .:/app
+      - /app/node_modules
+
+  mongodb-test:
+    image: mongo:latest
+    ports:
+      - "27018:27017"
+    volumes:
+      - mongodb_test_data:/data/db
+      - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+    environment:
+      - MONGO_INITDB_DATABASE=trial-junkies-test
+
+  redis-test:
+    image: redis:alpine
+    ports:
+      - "6380:6379"
+    volumes:
+      - redis_test_data:/data
+    command: redis-server --appendonly yes
+
+volumes:
+  mongodb_test_data:
+  redis_test_data:

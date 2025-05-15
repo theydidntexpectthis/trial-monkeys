@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Entertainment Trials - Trial Monkeys</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/entertainment.css">
+</head>
+<body class="dark-theme">
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <img src="../images/monkey-logo.svg" alt="Trial Monkeys" class="logo">
+                <h3>Entertainment Hub</h3>
+            </div>
+
+            <div class="user-info">
+                <div class="avatar">🐵</div>
+                <div class="user-details">
+                    <span class="username">Demo User</span>
+                    <span class="subscription-badge premium">Premium</span>
+                </div>
+            </div>
+
+            <nav class="sidebar-nav">
+                <a href="#bundles" class="nav-item active">
+                    <span class="icon">📦</span>
+                    Bundles
+                </a>
+                <a href="#active-trials" class="nav-item">
+                    <span class="icon">🎯</span>
+                    Active Trials
+                    <span class="badge">3</span>
+                </a>
+                <a href="#streaming" class="nav-item">
+                    <span class="icon">🎬</span>
+                    Streaming
+                </a>
+                <a href="#gaming" class="nav-item">
+                    <span class="icon">🎮</span>
+                    Gaming
+                </a>
+                <a href="#music" class="nav-item">
+                    <span class="icon">🎵</span>
+                    Music
+                </a>
+            </nav>
+
+            <div class="sidebar-footer">
+                <div class="stats">
+                    <div class="stat-item">
+                        <span class="label">Active Trials</span>
+                        <span class="value">3/5</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="label">Saved</span>
+                        <span class="value">$299</span>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Bundle Section -->
+            <section class="entertainment-section">
+                <h2>Popular Bundles</h2>
+                <div class="bundle-grid">
+                    <!-- Streaming Bundle -->
+                    <div class="bundle-card">
+                        <div class="bundle-badge">Most Popular</div>
+                        <div class="bundle-header">
+                            <span class="bundle-icon">🎬</span>
+                            <h3 class="bundle-title">Streaming Bundle</h3>
+                        </div>
+                        <span class="bundle-price">25 $MONK</span>
+                        <span class="bundle-savings">Save 60%</span>
+                        
+                        <div class="service-list">
+                            <div class="service-item">
+                                <span class="service-icon">📺</span>
+                                <div class="service-details">
+                                    <div class="service-name">Netflix Premium</div>
+                                    <div class="service-features">4K HDR, 4 Screens</div>
+                                </div>
+                            </div>
+                            <div class="service-item">
+                                <span class="service-icon">🏰</span>
+                                <div class="service-details">
+                                    <div class="service-name">Disney+</div>
+                                    <div class="service-features">4K, Downloads</div>
+                                </div>
+                            </div>
+                            <div class="service-item">
+                                <span class="service-icon">🎵</span>
+                                <div class="service-details">
+                                    <div class="service-name">Spotify Premium</div>
+                                    <div class="service-features">Ad-free, Offline</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bundle-features">
+                            <span class="feature-tag">30-day duration</span>
+                            <span class="feature-tag">Auto-renewal protection</span>
+                            <span class="feature-tag">Priority support</span>
+                        </div>
+
+                        <div class="success-rate">
+                            <span>Success Rate</span>
+                            <div class="success-bar">
+                                <div class="success-fill" style="width: 95%"></div>
+                            </div>
+                            <span>95%</span>
+                        </div>
+
+                        <div class="bundle-action">
+                            <button class="bundle-button">Generate Bundle 🚀</button>
+                        </div>
+                    </div>
+
+                    <!-- Gaming Bundle -->
+                    <div class="bundle-card">
+                        <div class="bundle-header">
+                            <span class="bundle-icon">🎮</span>
+                            <h3 class="bundle-title">Gaming Bundle</h3>
+                        </div>
+                        <span class="bundle-price">15 $MONK</span>
+                        <span class="bundle-savings">Save 45%</span>
+                        
+                        <div class="service-list">
+                            <div class="service-item">
+                                <span class="service-icon">🎮</span>
+                                <div class="service-details">
+                                    <div class="service-name">Xbox Game Pass</div>
+                                    <div class="service-features">100+ Games</div>
+                                </div>
+                            </div>
+                            <div class="service-item">
+                                <span class="service-icon">🎮</span>
+                                <div class="service-details">
+                                    <div class="service-name">PlayStation Now</div>
+                                    <div class="service-features">700+ Games</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="bundle-action">
+                            <button class="bundle-button">Generate Bundle 🚀</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Active Trials Section -->
+            <section class="entertainment-section">
+                <h2>Active Trials</h2>
+                <div class="active-trials-grid">
+                    <!-- Trial cards will be populated dynamically -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Notifications Panel -->
+        <aside class="notifications-panel">
+            <div class="notifications-header">
+                <h3>Notifications</h3>
+                <span class="badge">3</span>
+            </div>
+            <div class="notifications-list">
+                <!-- Notifications will be populated dynamically -->
+            </div>
+        </aside>
+    </div>
+
+    <script src="../js/entertainment.js"></script>
+</body>
+</html>

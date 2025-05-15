@@ -1,0 +1,70 @@
+<svg width="240" height="120" viewBox="0 0 240 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Three Plan Cards -->
+    <g id="basic-plan">
+        <!-- Basic Plan Card -->
+        <rect x="10" y="20" width="60" height="90" rx="8" fill="#1a1b26" stroke="#7aa2f7" stroke-width="2"/>
+        <text x="40" y="40" text-anchor="middle" fill="white" font-size="12">Basic</text>
+        <!-- Basic Monkey -->
+        <circle cx="40" cy="60" r="15" fill="#7aa2f7"/>
+        <circle cx="35" cy="55" r="3" fill="white"/> <!-- Left eye -->
+        <circle cx="45" cy="55" r="3" fill="white"/> <!-- Right eye -->
+        <path d="M35 65 Q40 68 45 65" stroke="white" stroke-width="2"/> <!-- Smile -->
+        <text x="40" y="90" text-anchor="middle" fill="white" font-size="14">5 🍌</text>
+    </g>
+
+    <g id="power-plan">
+        <!-- Power Plan Card (Larger) -->
+        <rect x="85" y="10" width="70" height="100" rx="8" fill="#24273a" stroke="#9ece6a" stroke-width="2"/>
+        <text x="120" y="35" text-anchor="middle" fill="white" font-size="14" font-weight="bold">Power</text>
+        <!-- Power Monkey with Crown -->
+        <circle cx="120" cy="60" r="18" fill="#9ece6a"/>
+        <path d="M105 45 L120 35 L135 45 L125 55 L115 55 Z" fill="#ffd700"/> <!-- Crown -->
+        <circle cx="115" cy="55" r="3" fill="white"/> <!-- Left eye -->
+        <circle cx="125" cy="55" r="3" fill="white"/> <!-- Right eye -->
+        <path d="M115 65 Q120 70 125 65" stroke="white" stroke-width="2.5"/> <!-- Smile -->
+        <text x="120" y="90" text-anchor="middle" fill="white" font-size="16">20 🍌</text>
+    </g>
+
+    <g id="enterprise-plan">
+        <!-- Enterprise Plan Card -->
+        <rect x="170" y="20" width="60" height="90" rx="8" fill="#1a1b26" stroke="#f7768e" stroke-width="2"/>
+        <text x="200" y="40" text-anchor="middle" fill="white" font-size="12">Enterprise</text>
+        <!-- Enterprise Monkey with Glasses -->
+        <circle cx="200" cy="60" r="15" fill="#f7768e"/>
+        <circle cx="195" cy="55" r="3" fill="white"/> <!-- Left eye -->
+        <circle cx="205" cy="55" r="3" fill="white"/> <!-- Right eye -->
+        <path d="M195 65 Q200 68 205 65" stroke="white" stroke-width="2"/> <!-- Smile -->
+        <path d="M190 55 H210" stroke="white" stroke-width="1"/> <!-- Glasses frame -->
+        <text x="200" y="90" text-anchor="middle" fill="white" font-size="14">50 🍌</text>
+    </g>
+
+    <!-- Connecting Lines -->
+    <path d="M70 60 H85" stroke="#7aa2f7" stroke-width="2" stroke-dasharray="4"/>
+    <path d="M155 60 H170" stroke="#9ece6a" stroke-width="2" stroke-dasharray="4"/>
+
+    <!-- Features Dots -->
+    <g id="features" fill="white" opacity="0.6">
+        <circle cx="40" cy="100" r="2"/>
+        <circle cx="120" cy="100" r="2"/>
+        <circle cx="120" cy="105" r="2"/>
+        <circle cx="200" cy="100" r="2"/>
+        <circle cx="200" cy="105" r="2"/>
+        <circle cx="200" cy="110" r="2"/>
+    </g>
+
+    <!-- Hover Effects -->
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-5px); }
+            100% { transform: translateY(0px); }
+        }
+        g {
+            animation: float 3s ease-in-out infinite;
+        }
+        g:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease;
+        }
+    </style>
+</svg>

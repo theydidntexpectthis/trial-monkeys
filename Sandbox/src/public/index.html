@@ -10,14 +10,38 @@
 </head>
 <body>
     <div id="app">
-        <!-- Login Section -->
+        <!-- Hero Section -->
         <section id="login-section" class="section">
             <div class="container">
-                <h1>Trial Junkies</h1>
-                <p>Connect with Phantom Wallet to manage your trial accounts</p>
-                <button id="connect-wallet" class="btn-primary">
-                    Connect Phantom Wallet
-                </button>
+                <h1>Trial Monkeys</h1>
+                <p class="hero-text">Your Ultimate Trial Account Generator - Never Pay Full Price Again! 🐒</p>
+                <div class="auth-buttons">
+                    <button id="connect-wallet" class="btn-primary">
+                        <img src="images/phantom-icon.svg" alt="Phantom" width="24" height="24">
+                        Connect Phantom Wallet
+                    </button>
+                    <button id="connect-discord" class="btn-secondary">
+                        <img src="images/discord-icon.svg" alt="Discord" width="24" height="24">
+                        Login with Discord
+                    </button>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <span class="emoji">🎯</span>
+                        <h3>One-Click Trials</h3>
+                        <p>Instant access to any service</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="emoji">🔄</span>
+                        <h3>Auto-Renewal</h3>
+                        <p>Never lose access</p>
+                    </div>
+                    <div class="feature-card">
+                        <span class="emoji">🛡️</span>
+                        <h3>Safe & Secure</h3>
+                        <p>Enterprise-grade protection</p>
+                    </div>
+                </div>
             </div>
         </section>
 
@@ -49,19 +73,65 @@
             <!-- Available Services Panel -->
             <div id="available-services-panel" class="panel hidden">
                 <div class="container">
-                    <h2>Available Services</h2>
-                    <div class="filters">
-                        <select id="category-filter" class="select">
-                            <option value="">All Categories</option>
-                            <option value="streaming">Streaming</option>
-                            <option value="software">Software</option>
-                            <option value="gaming">Gaming</option>
-                            <option value="education">Education</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <input type="text" id="search-services" class="input" placeholder="Search services...">
+                    <h2>Generate Any Trial</h2>
+                    <div class="url-generator">
+                        <input type="url" id="service-url" class="input" placeholder="Paste any service URL...">
+                        <button id="generate-trial" class="btn-primary">Generate Trial 🚀</button>
                     </div>
-                    <div id="services-grid" class="grid"></div>
+                    
+                    <div class="subscription-tiers">
+                        <div class="trial-card">
+                            <div class="header">
+                                <h3>Single Trial</h3>
+                                <span class="price-tag">5 $MONK</span>
+                            </div>
+                            <p class="description">Perfect for quick access to any service</p>
+                            <ul class="features">
+                                <li>One-time trial generation</li>
+                                <li>14-day duration</li>
+                                <li>Auto-cleanup after expiry</li>
+                            </ul>
+                            <button class="btn-primary">Get Started</button>
+                        </div>
+                        
+                        <div class="trial-card featured">
+                            <div class="header">
+                                <h3>Power User</h3>
+                                <span class="price-tag">20 $MONK</span>
+                            </div>
+                            <p class="description">For regular trial hunters</p>
+                            <ul class="features">
+                                <li>5 concurrent trials</li>
+                                <li>30-day duration each</li>
+                                <li>Priority support</li>
+                                <li>Custom email domains</li>
+                            </ul>
+                            <button class="btn-primary">Popular Choice 🔥</button>
+                        </div>
+                        
+                        <div class="trial-card">
+                            <div class="header">
+                                <h3>Enterprise</h3>
+                                <span class="price-tag">50 $MONK</span>
+                            </div>
+                            <p class="description">Unlimited trial power</p>
+                            <ul class="features">
+                                <li>10 concurrent trials</li>
+                                <li>60-day duration each</li>
+                                <li>24/7 priority support</li>
+                                <li>Custom automation rules</li>
+                                <li>API access</li>
+                            </ul>
+                            <button class="btn-primary">Go Premium</button>
+                        </div>
+                    </div>
+
+                    <div class="popular-services">
+                        <h3>Popular Services</h3>
+                        <div id="services-grid" class="grid">
+                            <!-- Popular services will be populated dynamically -->
+                        </div>
+                    </div>
                 </div>
             </div>
 

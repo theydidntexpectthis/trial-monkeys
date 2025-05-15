@@ -14,16 +14,33 @@ const sampleServices = [
             unit: 'days'
         },
         price: {
-            amount: 0.1,
-            currency: 'SOL'
+            amount: 5,
+            currency: 'MONK'
         },
         requirements: {
             email: true,
             phoneNumber: false,
-            creditCard: false,
+            creditCard: true,
             captcha: true
         },
-        status: 'active'
+        automationConfig: {
+            selectors: {
+                loginForm: '#loginForm',
+                emailField: '#id_userLoginId',
+                passwordField: '#id_password',
+                submitButton: '.login-button',
+                captchaElement: '#captcha-container'
+            },
+            steps: [
+                { action: 'type', target: '#id_userLoginId', value: '{email}' },
+                { action: 'type', target: '#id_password', value: '{password}' },
+                { action: 'wait', target: '#captcha-container', delay: 2000 },
+                { action: 'submit', target: '.login-button' }
+            ]
+        },
+        status: 'active',
+        popularity: 98,
+        successRate: 95
     },
     {
         name: 'Adobe Creative Cloud',
@@ -72,18 +89,58 @@ const sampleServices = [
 const sampleUsers = [
     {
         username: 'demo_user',
-        email: 'demo@trialjunkies.com',
-        phantomWalletAddress: '0xdemo123456789',
+        email: 'demo@trialmonkeys.com',
+        walletAddress: '8xyt9RqQpmM2Dw6yCSvGBzwCge4GXXbxqGxKUeNBgvPZ',
         subscription: {
-            plan: 'premium',
-            status: 'active',
+            tier: 'power',
+            trialCount: 2,
+            maxTrials: 5,
             startDate: new Date(),
             endDate: new Date(Date.now() + 30 * 24 * 60 * 60 * 1000)
         },
-        isActive: true,
-        verificationStatus: {
-            email: true,
-            wallet: true
+        discord: {
+            id: '123456789',
+            username: 'demo_monkey'
+        },
+        preferences: {
+            theme: 'dark',
+            notifications: {
+                email: true,
+                discord: true
+            }
+        },
+        stats: {
+            trialsGenerated: 15,
+            successfulTrials: 14,
+            savedAmount: 299.99
+        }
+    },
+    {
+        username: 'enterprise_demo',
+        email: 'enterprise@trialmonkeys.com',
+        walletAddress: '9zyt8RqQpmM2Dw6yCSvGBzwCge4GXXbxqGxKUeNBgvPZ',
+        subscription: {
+            tier: 'enterprise',
+            trialCount: 3,
+            maxTrials: 10,
+            startDate: new Date(),
+            endDate: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000)
+        },
+        discord: {
+            id: '987654321',
+            username: 'power_monkey'
+        },
+        preferences: {
+            theme: 'dark',
+            notifications: {
+                email: true,
+                discord: true
+            }
+        },
+        stats: {
+            trialsGenerated: 45,
+            successfulTrials: 42,
+            savedAmount: 899.99
         }
     }
 ];

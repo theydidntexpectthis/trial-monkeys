@@ -1,0 +1,227 @@
+/* Entertainment Section Styles */
+.entertainment-section {
+    background: var(--background-primary);
+    padding: 2rem;
+    border-radius: 1rem;
+    margin: 2rem 0;
+}
+
+/* Bundle Cards */
+.bundle-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem 0;
+}
+
+.bundle-card {
+    background: var(--card-background);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.bundle-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+.bundle-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.bundle-icon {
+    font-size: 2rem;
+    background: linear-gradient(120deg, var(--primary-color), var(--success-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bundle-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.bundle-price {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: linear-gradient(120deg, var(--primary-color), var(--success-color));
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.bundle-savings {
+    position: absolute;
+    top: 4rem;
+    right: 1rem;
+    background: var(--success-color);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    color: var(--text-primary);
+    font-size: 0.875rem;
+}
+
+.service-list {
+    margin: 1.5rem 0;
+    list-style: none;
+    padding: 0;
+}
+
+.service-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    background: var(--background-secondary);
+    border-radius: 0.5rem;
+    margin-bottom: 0.75rem;
+    border: 1px solid var(--border-color);
+}
+
+.service-icon {
+    font-size: 1.25rem;
+}
+
+.service-details {
+    flex: 1;
+}
+
+.service-name {
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.service-features {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+}
+
+.bundle-features {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.feature-tag {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--background-secondary);
+    border-radius: 1rem;
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    margin: 0.25rem;
+}
+
+.bundle-action {
+    margin-top: 1.5rem;
+    text-align: center;
+}
+
+.bundle-button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(120deg, var(--primary-color), var(--success-color));
+    border: none;
+    border-radius: 0.5rem;
+    color: var(--text-primary);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.bundle-button:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.1);
+}
+
+/* Service Cards Animation */
+.service-item {
+    animation: slideIn 0.3s ease-out;
+    animation-fill-mode: both;
+}
+
+.service-item:nth-child(1) { animation-delay: 0.1s; }
+.service-item:nth-child(2) { animation-delay: 0.2s; }
+.service-item:nth-child(3) { animation-delay: 0.3s; }
+.service-item:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Bundle Badge */
+.bundle-badge {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    background: var(--danger-color);
+    color: var(--text-primary);
+    padding: 0.5rem;
+    border-radius: 0 0 1rem 0;
+    font-size: 0.75rem;
+    font-weight: 600;
+    transform: rotate(-15deg);
+    z-index: 1;
+}
+
+/* Success Rate Indicator */
+.success-rate {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    padding: 0.5rem;
+    background: var(--background-secondary);
+    border-radius: 0.5rem;
+}
+
+.success-bar {
+    flex: 1;
+    height: 4px;
+    background: var(--border-color);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.success-fill {
+    height: 100%;
+    background: var(--success-color);
+    width: var(--success-rate);
+    transition: width 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .bundle-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bundle-card {
+        margin: 1rem 0;
+    }
+
+    .bundle-price {
+        position: static;
+        margin-top: 1rem;
+        text-align: center;
+    }
+}

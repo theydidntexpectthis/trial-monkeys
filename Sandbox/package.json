@@ -6,12 +6,16 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "test": "jest --detectOpenHandles",
+    "test": "jest --detectOpenHandles --coverage",
     "test:watch": "jest --watch",
+    "test:e2e": "jest --config jest.config.e2e.js",
+    "test:integration": "jest --config jest.config.integration.js",
     "lint": "eslint src/**/*.js",
     "format": "prettier --write 'src/**/*.{js,json}'",
     "seed": "node src/utils/seed.js",
-    "clean": "rm -rf node_modules package-lock.json && npm install"
+    "clean": "rm -rf node_modules package-lock.json && npm install",
+    "docker:test": "docker-compose -f docker-compose.test.yml up --abort-on-container-exit",
+    "prepare": "husky install"
   },
   "dependencies": {
     "express": "^4.18.2",

@@ -12,10 +12,40 @@ const config = {
 
     // Database configuration
     database: {
-        uri: process.env.MONGODB_URI || 'mongodb://localhost:27017/trial-junkies',
+        uri: process.env.MONGODB_URI || 'mongodb://mongodb:27017/trial-junkies',
         options: {
             useNewUrlParser: true,
-            useUnifiedTopology: true
+            useUnifiedTopology: true,
+            retryWrites: true,
+            w: 'majority'
+        }
+    },
+
+    // CORS configuration
+    cors: {
+        origin: process.env.CORS_ORIGIN || '*',
+        credentials: true,
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+        allowedHeaders: ['Content-Type', 'Authorization']
+    },
+
+    // Redis configuration
+    redis: {
+        host: process.env.REDIS_HOST || 'redis',
+        port: process.env.REDIS_PORT || 6379,
+        options: {
+            retryStrategy: times => Math.min(times * 50, 2000)
+        }
+    },
+
+    // Session configuration
+    session: {
+        secret: process.env.SESSION_SECRET || 'your-session-secret',
+        resave: false,
+        saveUninitialized: false,
+        cookie: {
+            secure: process.env.NODE_ENV === 'production',
+            maxAge: 24 * 60 * 60 * 1000 // 24 hours
         }
     },
 
