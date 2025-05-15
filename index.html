@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trial Monkeys - Trial Account Manager</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- OpenUI CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/@open-ui/components@latest/dist/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div id="app">
+        <!-- Login Section -->
+        <section id="login-section" class="section">
+            <div class="container">
+                <h1>Trial Monkeys</h1>
+                <p>Connect with Phantom Wallet to manage your trial accounts</p>
+                <button id="connect-wallet" class="btn-primary">
+                    Connect Phantom Wallet
+                </button>
+            </div>
+        </section>
+
+        <!-- Dashboard Section -->
+        <section id="dashboard-section" class="section hidden">
+            <nav class="dashboard-nav">
+                <div class="container">
+                    <div class="nav-brand">Trial Monkeys</div>
+                    <div class="nav-menu">
+                        <button id="active-trials-btn" class="nav-item active">Active Trials</button>
+                        <button id="available-services-btn" class="nav-item">Available Services</button>
+                        <button id="settings-btn" class="nav-item">Settings</button>
+                    </div>
+                    <div class="nav-user">
+                        <span id="wallet-address"></span>
+                        <button id="logout-btn" class="btn-secondary">Logout</button>
+                    </div>
+                </div>
+            </nav>
+
+            <!-- Active Trials Panel -->
+            <div id="active-trials-panel" class="panel">
+                <div class="container">
+                    <h2>Active Trials</h2>
+                    <div id="active-trials-grid" class="grid"></div>
+                </div>
+            </div>
+
+            <!-- Available Services Panel -->
+            <div id="available-services-panel" class="panel hidden">
+                <div class="container">
+                    <h2>Available Services</h2>
+                    <div class="filters">
+                        <select id="category-filter" class="select">
+                            <option value="">All Categories</option>
+                            <option value="streaming">Streaming</option>
+                            <option value="software">Software</option>
+                            <option value="gaming">Gaming</option>
+                            <option value="education">Education</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <input type="text" id="search-services" class="input" placeholder="Search services...">
+                    </div>
+                    <div id="services-grid" class="grid"></div>
+                </div>
+            </div>
+
+            <!-- Settings Panel -->
+            <div id="settings-panel" class="panel hidden">
+                <div class="container">
+                    <h2>Settings</h2>
+                    <div class="settings-form">
+                        <div class="form-group">
+                            <label>Username</label>
+                            <input type="text" id="username-input" class="input">
+                        </div>
+                        <div class="form-group">
+                            <label>Email</label>
+                            <input type="email" id="email-input" class="input">
+                        </div>
+                        <div class="form-group">
+                            <label>Theme</label>
+                            <select id="theme-select" class="select">
+                                <option value="light">Light</option>
+                                <option value="dark">Dark</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Notifications</label>
+                            <div class="checkbox-group">
+                                <label>
+                                    <input type="checkbox" id="email-notifications">
+                                    Email Notifications
+                                </label>
+                                <label>
+                                    <input type="checkbox" id="browser-notifications">
+                                    Browser Notifications
+                                </label>
+                            </div>
+                        </div>
+                        <button id="save-settings" class="btn-primary">Save Settings</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Payment Modal -->
+        <div id="payment-modal" class="modal hidden">
+            <div class="modal-content">
+                <h3>Payment Confirmation</h3>
+                <div id="payment-status" class="status-message"></div>
+                <div class="payment-details">
+                    <p>Amount: <span id="payment-amount"></span></p>
+                    <div class="wallet-info">
+                        <p>Your Wallet: <span id="user-wallet-address"></span></p>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button id="confirm-payment" class="btn-primary">Confirm Payment</button>
+                    <button id="cancel-payment" class="btn-secondary">Cancel</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Trial Creation Modal -->
+        <div id="trial-modal" class="modal hidden">
+            <div class="modal-content">
+                <h3>Create Trial Account</h3>
+                <div id="trial-progress" class="progress-bar"></div>
+                <div id="trial-status" class="status-message"></div>
+                <div class="modal-footer">
+                    <button id="close-modal" class="btn-secondary">Close</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Transaction History Panel -->
+        <div id="transactions-panel" class="panel hidden">
+            <div class="container">
+                <h2>Transaction History</h2>
+                <div class="filters">
+                    <select id="transaction-type-filter" class="select">
+                        <option value="">All Types</option>
+                        <option value="payment">Payments</option>
+                        <option value="refund">Refunds</option>
+                    </select>
+                    <select id="transaction-status-filter" class="select">
+                        <option value="">All Statuses</option>
+                        <option value="completed">Completed</option>
+                        <option value="pending">Pending</option>
+                        <option value="failed">Failed</option>
+                    </select>
+                    <input type="date" id="transaction-date-filter" class="input" placeholder="Filter by date">
+                </div>
+                <div id="transaction-history" class="transaction-list"></div>
+                
+                <!-- Payment Statistics -->
+                <div class="payment-stats">
+                    <h3>Payment Statistics</h3>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <span class="stat-label">Total Spent</span>
+                            <span id="total-spent" class="stat-value">0 SOL</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Total Transactions</span>
+                            <span id="total-transactions" class="stat-value">0</span>
+                        </div>
+                        <div class="stat-card">
+                            <span class="stat-label">Success Rate</span>
+                            <span id="success-rate" class="stat-value">0%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/@open-ui/components@latest/dist/components.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@solana/web3.js@latest/lib/index.iife.min.js"></script>
+    <script src="js/app.js" type="module"></script>
+    <script src="js/payment.js" type="module"></script>
+</body>
+</html>
