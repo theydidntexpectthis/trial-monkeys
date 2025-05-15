@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - Trial Bot Explorer</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/logo.png" alt="Trial Bot Explorer" class="logo">
+                <h1>Trial Bot Explorer</h1>
+            </div>
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="dashboard.html"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="bots.html"><i class="fas fa-robot"></i> My Bots</a>
+                </li>
+                <li>
+                    <a href="monitoring.html"><i class="fas fa-chart-line"></i> Monitoring</a>
+                </li>
+                <li class="active">
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Profile Header -->
+            <div class="profile-header">
+                <div class="profile-info">
+                    <div class="profile-avatar">
+                        <img src="assets/default-avatar.png" alt="Profile" id="profile-image">
+                        <button class="edit-avatar">
+                            <i class="fas fa-camera"></i>
+                        </button>
+                    </div>
+                    <div class="profile-details">
+                        <h1 id="user-name">Loading...</h1>
+                        <p id="user-email">Loading...</p>
+                        <span class="subscription-badge premium" id="subscription-tier">Premium</span>
+                    </div>
+                </div>
+                <div class="profile-actions">
+                    <button class="btn-primary" onclick="showEditProfileModal()">
+                        <i class="fas fa-edit"></i> Edit Profile
+                    </button>
+                    <button class="btn-secondary" onclick="showSecurityModal()">
+                        <i class="fas fa-shield-alt"></i> Security
+                    </button>
+                </div>
+            </div>
+
+            <!-- Subscription Status -->
+            <div class="subscription-section">
+                <div class="section-header">
+                    <h2>Subscription</h2>
+                    <button class="btn-primary" onclick="showUpgradeModal()">Upgrade Plan</button>
+                </div>
+                <div class="subscription-details">
+                    <div class="subscription-info">
+                        <h3>Current Plan</h3>
+                        <p id="current-plan">Premium</p>
+                        <p class="subscription-expires">Expires: <span id="subscription-expiry">Dec 31, 2024</span></p>
+                    </div>
+                    <div class="usage-metrics">
+                        <div class="usage-item">
+                            <span class="usage-label">Active Trials</span>
+                            <div class="usage-bar">
+                                <div class="usage-progress" style="width: 60%"></div>
+                            </div>
+                            <span class="usage-text">12/20</span>
+                        </div>
+                        <div class="usage-item">
+                            <span class="usage-label">Concurrent Bots</span>
+                            <div class="usage-bar">
+                                <div class="usage-progress" style="width: 40%"></div>
+                            </div>
+                            <span class="usage-text">4/10</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity Statistics -->
+            <div class="statistics-section">
+                <h2>Activity Statistics</h2>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Trials</h3>
+                            <p id="total-trials">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Success Rate</h3>
+                            <p id="success-rate">0%</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-calendar"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Active Days</h3>
+                            <p id="active-days">0</p>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Total Time</h3>
+                            <p id="total-time">0h</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="activity-section">
+                <h2>Recent Activity</h2>
+                <div class="activity-timeline" id="activity-timeline">
+                    <!-- Activity items will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <!-- Connected Services -->
+            <div class="services-section">
+                <div class="section-header">
+                    <h2>Connected Services</h2>
+                    <button class="btn-secondary" onclick="showConnectServiceModal()">
+                        <i class="fas fa-plus"></i> Connect Service
+                    </button>
+                </div>
+                <div class="services-grid" id="connected-services">
+                    <!-- Connected services will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <!-- API Keys -->
+            <div class="api-section">
+                <div class="section-header">
+                    <h2>API Keys</h2>
+                    <button class="btn-secondary" onclick="generateApiKey()">
+                        <i class="fas fa-key"></i> Generate Key
+                    </button>
+                </div>
+                <div class="api-keys-list" id="api-keys">
+                    <!-- API keys will be dynamically inserted here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Profile Modal -->
+    <div class="modal" id="edit-profile-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Profile</h2>
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="profile-form">
+                    <div class="form-group">
+                        <label>Name</label>
+                        <input type="text" id="edit-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="edit-email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Timezone</label>
+                        <select id="edit-timezone">
+                            <option value="UTC">UTC</option>
+                            <option value="America/New_York">Eastern Time</option>
+                            <option value="America/Los_Angeles">Pacific Time</option>
+                            <!-- Add more timezones -->
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeEditProfileModal()">Cancel</button>
+                <button class="btn-primary" onclick="saveProfile()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Security Modal -->
+    <div class="modal" id="security-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Security Settings</h2>
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="security-section">
+                    <h3>Two-Factor Authentication</h3>
+                    <div class="toggle-container">
+                        <label class="toggle">
+                            <input type="checkbox" id="2fa-toggle">
+                            <span class="toggle-slider"></span>
+                        </label>
+                        <span>Enable 2FA</span>
+                    </div>
+                </div>
+                <div class="security-section">
+                    <h3>Change Password</h3>
+                    <form id="password-form">
+                        <div class="form-group">
+                            <label>Current Password</label>
+                            <input type="password" id="current-password">
+                        </div>
+                        <div class="form-group">
+                            <label>New Password</label>
+                            <input type="password" id="new-password">
+                        </div>
+                        <div class="form-group">
+                            <label>Confirm Password</label>
+                            <input type="password" id="confirm-password">
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeSecurityModal()">Cancel</button>
+                <button class="btn-primary" onclick="saveSecuritySettings()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/dashboard.js"></script>
+    <script src="js/profile.js"></script>
+</body>
+</html>

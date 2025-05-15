@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Monitoring - Trial Bot Explorer</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/monitoring.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/logo.png" alt="Trial Bot Explorer" class="logo">
+                <h1>Trial Bot Explorer</h1>
+            </div>
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="dashboard.html"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="bots.html"><i class="fas fa-robot"></i> My Bots</a>
+                </li>
+                <li class="active">
+                    <a href="monitoring.html"><i class="fas fa-chart-line"></i> Monitoring</a>
+                </li>
+                <li>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Overview Cards -->
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <div class="overview-icon success">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="overview-info">
+                        <h3>Active Trials</h3>
+                        <p id="active-trials-count">0</p>
+                    </div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-icon warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <div class="overview-info">
+                        <h3>Issues</h3>
+                        <p id="issues-count">0</p>
+                    </div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-icon info">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="overview-info">
+                        <h3>Average Success Rate</h3>
+                        <p id="success-rate">0%</p>
+                    </div>
+                </div>
+                <div class="overview-card">
+                    <div class="overview-icon primary">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <div class="overview-info">
+                        <h3>Active Bots</h3>
+                        <p id="active-bots">0</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real-time Monitoring -->
+            <div class="monitoring-section">
+                <div class="section-header">
+                    <h2>Real-time Monitoring</h2>
+                    <div class="monitoring-actions">
+                        <select id="time-range">
+                            <option value="1h">Last Hour</option>
+                            <option value="24h">Last 24 Hours</option>
+                            <option value="7d">Last 7 Days</option>
+                            <option value="30d">Last 30 Days</option>
+                        </select>
+                        <button class="btn-secondary" id="export-data">
+                            <i class="fas fa-download"></i> Export Data
+                        </button>
+                    </div>
+                </div>
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <h3>Success Rate Over Time</h3>
+                        <canvas id="success-rate-chart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Response Time Trends</h3>
+                        <canvas id="response-time-chart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Trial Creation Distribution</h3>
+                        <canvas id="trial-distribution-chart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Error Rate Analysis</h3>
+                        <canvas id="error-analysis-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bot Health -->
+            <div class="health-section">
+                <h2>Bot Health Status</h2>
+                <div class="health-grid" id="bot-health-grid">
+                    <!-- Bot health cards will be dynamically inserted here -->
+                </div>
+            </div>
+
+            <!-- Active Issues -->
+            <div class="issues-section">
+                <div class="section-header">
+                    <h2>Active Issues</h2>
+                    <div class="issue-filters">
+                        <select id="severity-filter">
+                            <option value="all">All Severities</option>
+                            <option value="high">High</option>
+                            <option value="medium">Medium</option>
+                            <option value="low">Low</option>
+                        </select>
+                        <select id="status-filter">
+                            <option value="all">All Status</option>
+                            <option value="open">Open</option>
+                            <option value="investigating">Investigating</option>
+                            <option value="resolved">Resolved</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="issues-table">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Bot</th>
+                                <th>Issue</th>
+                                <th>Severity</th>
+                                <th>Status</th>
+                                <th>Time</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="issues-table-body">
+                            <!-- Issues will be dynamically inserted here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Performance Metrics -->
+            <div class="metrics-section">
+                <h2>Performance Metrics</h2>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <h3>Proxy Performance</h3>
+                        <div class="metric-chart">
+                            <canvas id="proxy-performance-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>CAPTCHA Solution Rate</h3>
+                        <div class="metric-chart">
+                            <canvas id="captcha-rate-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>Resource Usage</h3>
+                        <div class="metric-chart">
+                            <canvas id="resource-usage-chart"></canvas>
+                        </div>
+                    </div>
+                    <div class="metric-card">
+                        <h3>API Health</h3>
+                        <div class="metric-chart">
+                            <canvas id="api-health-chart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Alert Sidebar -->
+        <aside class="alert-sidebar" id="alert-sidebar">
+            <div class="alert-header">
+                <h3>Recent Alerts</h3>
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="alert-list" id="alert-list">
+                <!-- Alerts will be dynamically inserted here -->
+            </div>
+        </aside>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/monitoring.js"></script>
+    <script src="js/websocket-handler.js"></script>
+</body>
+</html>

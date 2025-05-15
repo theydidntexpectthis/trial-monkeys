@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Overview - Trial Bot Explorer</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/overview.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/logo.png" alt="Trial Bot Explorer" class="logo">
+                <h1>Trial Bot Explorer</h1>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active">
+                    <a href="overview.html"><i class="fas fa-home"></i> Overview</a>
+                </li>
+                <li>
+                    <a href="bots.html"><i class="fas fa-robot"></i> My Bots</a>
+                </li>
+                <li>
+                    <a href="monitoring.html"><i class="fas fa-chart-line"></i> Monitoring</a>
+                </li>
+                <li>
+                    <a href="profile.html"><i class="fas fa-user"></i> Profile</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Welcome Section -->
+            <div class="welcome-section">
+                <div class="welcome-message">
+                    <h1>Welcome back, <span id="user-name">User</span>!</h1>
+                    <p class="subtitle">Here's your trial automation overview</p>
+                </div>
+                <div class="quick-actions">
+                    <button class="btn-primary" onclick="showNewBotModal()">
+                        <i class="fas fa-plus"></i> Create New Bot
+                    </button>
+                    <button class="btn-secondary" onclick="window.location.href='monitoring.html'">
+                        <i class="fas fa-chart-line"></i> View Analytics
+                    </button>
+                </div>
+            </div>
+
+            <!-- Overview Stats -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon success">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Active Trials</h3>
+                        <p id="active-trials">0</p>
+                        <span class="trend positive">+5% this week</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon info">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Active Bots</h3>
+                        <p id="active-bots">0</p>
+                        <span class="trend">No change</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon warning">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Time Saved</h3>
+                        <p id="time-saved">0h</p>
+                        <span class="trend positive">+2h today</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon primary">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Success Rate</h3>
+                        <p id="success-rate">0%</p>
+                        <span class="trend positive">+3% this week</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity & Active Trials -->
+            <div class="dashboard-grid">
+                <!-- Recent Activity -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2>Recent Activity</h2>
+                        <button class="btn-link" onclick="window.location.href='history.html'">View All</button>
+                    </div>
+                    <div class="activity-list" id="activity-list">
+                        <!-- Activity items will be dynamically inserted here -->
+                    </div>
+                </div>
+
+                <!-- Active Trials -->
+                <div class="dashboard-card">
+                    <div class="card-header">
+                        <h2>Active Trials</h2>
+                        <button class="btn-link" onclick="window.location.href='bots.html'">Manage Trials</button>
+                    </div>
+                    <div class="trials-list" id="trials-list">
+                        <!-- Trial items will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Performance Overview -->
+            <div class="performance-section">
+                <h2>Performance Overview</h2>
+                <div class="chart-grid">
+                    <div class="chart-card">
+                        <h3>Success Rate Trend</h3>
+                        <canvas id="success-rate-chart"></canvas>
+                    </div>
+                    <div class="chart-card">
+                        <h3>Trial Distribution</h3>
+                        <canvas id="trial-distribution-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Access -->
+            <div class="quick-access-section">
+                <h2>Quick Access</h2>
+                <div class="quick-access-grid">
+                    <div class="quick-access-card" onclick="window.location.href='bots.html'">
+                        <i class="fas fa-robot"></i>
+                        <h3>My Bots</h3>
+                        <p>Manage your trial bots</p>
+                    </div>
+                    <div class="quick-access-card" onclick="window.location.href='monitoring.html'">
+                        <i class="fas fa-chart-line"></i>
+                        <h3>Monitoring</h3>
+                        <p>View detailed analytics</p>
+                    </div>
+                    <div class="quick-access-card" onclick="window.location.href='settings.html'">
+                        <i class="fas fa-cog"></i>
+                        <h3>Settings</h3>
+                        <p>Configure your preferences</p>
+                    </div>
+                    <div class="quick-access-card" onclick="window.location.href='profile.html'">
+                        <i class="fas fa-user"></i>
+                        <h3>Profile</h3>
+                        <p>Manage your account</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- System Status -->
+            <div class="system-status-section">
+                <div class="status-header">
+                    <h2>System Status</h2>
+                    <span class="status-indicator healthy">All Systems Operational</span>
+                </div>
+                <div class="status-grid">
+                    <div class="status-item">
+                        <span class="status-label">API</span>
+                        <span class="status-value healthy">Operational</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Bot Service</span>
+                        <span class="status-value healthy">Operational</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">Proxy Network</span>
+                        <span class="status-value healthy">Operational</span>
+                    </div>
+                    <div class="status-item">
+                        <span class="status-label">CAPTCHA Service</span>
+                        <span class="status-value healthy">Operational</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/overview.js"></script>
+    <script src="js/websocket-handler.js"></script>
+</body>
+</html>

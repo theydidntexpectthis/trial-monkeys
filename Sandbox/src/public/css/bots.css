@@ -1,0 +1,353 @@
+/* Bot Management Page Styles */
+
+/* Bot Filters */
+.bot-filters {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+    padding: var(--spacing-md);
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-sm);
+    flex-wrap: wrap;
+}
+
+.filter-group {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.filter-group label {
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.filter-group select {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    color: var(--text-dark);
+    background-color: white;
+    min-width: 150px;
+}
+
+/* View Toggle */
+.view-toggle {
+    display: flex;
+    gap: 1px;
+    background-color: var(--border-color);
+    border-radius: 0.375rem;
+    overflow: hidden;
+}
+
+.view-btn {
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: none;
+    background-color: white;
+    color: var(--secondary-color);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.view-btn.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* Bot Grid View */
+.bot-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.bot-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative;
+}
+
+.bot-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.bot-card .status-badge {
+    position: absolute;
+    top: var(--spacing-md);
+    right: var(--spacing-md);
+    padding: 4px 8px;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.status-badge.active {
+    background-color: rgba(34, 197, 94, 0.1);
+    color: var(--success-color);
+}
+
+.status-badge.paused {
+    background-color: rgba(234, 179, 8, 0.1);
+    color: var(--warning-color);
+}
+
+.status-badge.failed {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--danger-color);
+}
+
+.bot-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 0.5rem;
+    margin-bottom: var(--spacing-md);
+}
+
+.bot-info h3 {
+    margin: 0 0 var(--spacing-sm) 0;
+    color: var(--text-dark);
+}
+
+.bot-info p {
+    color: var(--secondary-color);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+.bot-metrics {
+    display: flex;
+    justify-content: space-between;
+    margin: var(--spacing-md) 0;
+    padding: var(--spacing-md) 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.metric {
+    text-align: center;
+}
+
+.metric-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.metric-label {
+    font-size: 0.75rem;
+    color: var(--secondary-color);
+}
+
+.bot-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+/* Bot List View */
+.bot-list {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+}
+
+.bot-list-item {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.2s ease;
+}
+
+.bot-list-item:hover {
+    background-color: var(--background-light);
+}
+
+.bot-list-item:last-child {
+    border-bottom: none;
+}
+
+.bot-list-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 0.375rem;
+    margin-right: var(--spacing-md);
+}
+
+.bot-list-info {
+    flex: 1;
+}
+
+.bot-list-metrics {
+    display: flex;
+    gap: var(--spacing-xl);
+    margin-right: var(--spacing-xl);
+}
+
+.bot-list-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+/* Bot Details Modal */
+.bot-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
+}
+
+.stat-item {
+    background-color: var(--background-light);
+    padding: var(--spacing-md);
+    border-radius: 0.375rem;
+    text-align: center;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-xs);
+    display: block;
+}
+
+.stat-value {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-dark);
+}
+
+.bot-config {
+    margin-bottom: var(--spacing-lg);
+}
+
+.config-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.toggle-group {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.bot-logs {
+    background-color: var(--background-light);
+    border-radius: 0.375rem;
+    padding: var(--spacing-md);
+    max-height: 200px;
+    overflow-y: auto;
+}
+
+.log-entry {
+    padding: var(--spacing-sm) 0;
+    border-bottom: 1px solid var(--border-color);
+    font-size: 0.875rem;
+}
+
+.log-entry:last-child {
+    border-bottom: none;
+}
+
+.log-time {
+    color: var(--secondary-color);
+    font-size: 0.75rem;
+}
+
+/* New Bot Modal */
+.form-group {
+    margin-bottom: var(--spacing-md);
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: var(--spacing-xs);
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    font-size: 1rem;
+}
+
+.config-options {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xs);
+}
+
+/* Dark Theme Support */
+[data-theme="dark"] .bot-filters,
+[data-theme="dark"] .bot-card,
+[data-theme="dark"] .bot-list {
+    background-color: var(--background-dark);
+}
+
+[data-theme="dark"] .filter-group select,
+[data-theme="dark"] .form-group input,
+[data-theme="dark"] .form-group select {
+    background-color: #2d3748;
+    border-color: #4a5568;
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .bot-list-item:hover {
+    background-color: #2d3748;
+}
+
+[data-theme="dark"] .stat-item {
+    background-color: #2d3748;
+}
+
+[data-theme="dark"] .bot-logs {
+    background-color: #2d3748;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .bot-filters {
+        flex-direction: column;
+    }
+
+    .filter-group {
+        width: 100%;
+    }
+
+    .filter-group select {
+        flex: 1;
+    }
+
+    .bot-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .bot-list-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-md);
+    }
+
+    .bot-list-metrics {
+        width: 100%;
+        justify-content: space-between;
+        margin: var(--spacing-md) 0;
+    }
+
+    .bot-list-actions {
+        width: 100%;
+        justify-content: flex-end;
+    }
+}

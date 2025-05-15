@@ -1,0 +1,333 @@
+/* Settings Container */
+.settings-container {
+    padding: var(--spacing-lg);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.settings-container h1 {
+    margin-bottom: var(--spacing-xl);
+    color: var(--text-dark);
+    font-size: 2rem;
+}
+
+/* Settings Sections */
+.settings-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.settings-section h2 {
+    font-size: 1.25rem;
+    color: var(--text-dark);
+    margin-bottom: var(--spacing-md);
+}
+
+/* Settings Cards */
+.settings-card {
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--spacing-lg);
+}
+
+/* Settings Fields */
+.settings-field {
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.settings-field label {
+    font-weight: 500;
+    color: var(--text-dark);
+}
+
+.settings-field input[type="text"],
+.settings-field input[type="email"],
+.settings-field select {
+    flex: 1;
+    max-width: 300px;
+    padding: var(--spacing-sm);
+    border: 1px solid var(--border-color);
+    border-radius: 0.375rem;
+    font-size: 1rem;
+    margin-left: var(--spacing-md);
+}
+
+/* Toggle Switches */
+.toggle {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.toggle input {
+    display: none;
+}
+
+.toggle-slider {
+    position: relative;
+    width: 48px;
+    height: 24px;
+    background-color: var(--border-color);
+    border-radius: 12px;
+    transition: background-color 0.2s;
+    margin-right: var(--spacing-md);
+}
+
+.toggle-slider:before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.2s;
+}
+
+.toggle input:checked + .toggle-slider {
+    background-color: var(--primary-color);
+}
+
+.toggle input:checked + .toggle-slider:before {
+    transform: translateX(24px);
+}
+
+.toggle-label {
+    font-weight: 500;
+}
+
+/* Wallet Display */
+.wallet-display {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+#wallet-address {
+    font-family: monospace;
+    color: var(--secondary-color);
+}
+
+/* Premium Features */
+.premium-feature {
+    font-size: 0.75rem;
+    color: var(--primary-color);
+    background-color: rgba(79, 70, 229, 0.1);
+    padding: 2px 8px;
+    border-radius: 1rem;
+    margin-left: var(--spacing-sm);
+}
+
+/* Subscription Card */
+.subscription-card {
+    background: linear-gradient(to right, #4f46e5, #818cf8);
+    color: white;
+}
+
+.current-plan {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.current-plan h3 {
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.plan-details {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-md);
+}
+
+.plan-feature {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.plan-feature i {
+    width: 20px;
+    text-align: center;
+}
+
+.plan-feature.disabled {
+    opacity: 0.6;
+}
+
+/* Data Management */
+.data-management-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    flex-wrap: wrap;
+}
+
+.data-management-buttons button {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Settings Actions */
+.settings-actions {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-lg);
+    border-top: 1px solid var(--border-color);
+}
+
+/* Buttons */
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 0.375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: var(--primary-dark);
+}
+
+.btn-secondary {
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 0.375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-secondary:hover {
+    background-color: var(--border-color);
+}
+
+.btn-danger {
+    background-color: var(--danger-color);
+    color: white;
+    border: none;
+    padding: var(--spacing-sm) var(--spacing-lg);
+    border-radius: 0.375rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-danger:hover {
+    background-color: #dc2626;
+}
+
+/* Toast Notifications */
+.toast {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: var(--spacing-md) var(--spacing-lg);
+    border-radius: 0.375rem;
+    color: white;
+    animation: slideIn 0.3s ease-out;
+    z-index: 1000;
+}
+
+.toast.success {
+    background-color: var(--success-color);
+}
+
+.toast.error {
+    background-color: var(--danger-color);
+}
+
+@keyframes slideIn {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+    background-color: var(--background-dark);
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .settings-card {
+    background-color: #2d3748;
+}
+
+[data-theme="dark"] .settings-field input[type="text"],
+[data-theme="dark"] .settings-field input[type="email"],
+[data-theme="dark"] .settings-field select {
+    background-color: #1a202c;
+    border-color: #4a5568;
+    color: var(--text-light);
+}
+
+[data-theme="dark"] .btn-secondary {
+    background-color: #4a5568;
+    color: var(--text-light);
+    border-color: #4a5568;
+}
+
+[data-theme="dark"] .btn-secondary:hover {
+    background-color: #2d3748;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .settings-container {
+        padding: var(--spacing-md);
+    }
+
+    .settings-field {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+
+    .settings-field input[type="text"],
+    .settings-field input[type="email"],
+    .settings-field select {
+        width: 100%;
+        max-width: none;
+        margin-left: 0;
+    }
+
+    .wallet-display {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--spacing-sm);
+    }
+
+    .current-plan {
+        flex-direction: column;
+        gap: var(--spacing-md);
+        text-align: center;
+    }
+
+    .data-management-buttons {
+        flex-direction: column;
+    }
+
+    .settings-actions {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+}

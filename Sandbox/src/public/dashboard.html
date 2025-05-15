@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trial Bot Explorer - 500+ Free Trial Bots</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/logo.png" alt="Trial Bot Explorer" class="logo">
+                <h1>Trial Bot Explorer</h1>
+            </div>
+            <ul class="sidebar-menu">
+                <li class="active">
+                    <a href="#"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-robot"></i> My Bots</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-history"></i> Trial History</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-star"></i> Featured Bots</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-chart-line"></i> Analytics</a>
+                </li>
+                <li>
+                    <a href="#"><i class="fas fa-cog"></i> Settings</a>
+                </li>
+            </ul>
+            <div class="sidebar-footer">
+                <div class="user-info">
+                    <img src="assets/default-avatar.png" alt="User Avatar" class="avatar">
+                    <span class="username">Guest User</span>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Top Bar -->
+            <div class="top-bar">
+                <div class="search-container">
+                    <input type="text" placeholder="Search 500+ trial bots..." class="search-input">
+                    <button class="search-btn"><i class="fas fa-search"></i></button>
+                </div>
+                <div class="top-bar-actions">
+                    <button class="btn-primary"><i class="fas fa-plus"></i> Create Bot</button>
+                    <div class="notifications">
+                        <i class="fas fa-bell"></i>
+                        <span class="notification-badge">3</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Quick Settings Panel -->
+            <div id="quick-settings-panel" class="quick-settings">
+                <div class="quick-settings-header">
+                    <h3>Quick Settings</h3>
+                    <button class="close-btn"><i class="fas fa-times"></i></button>
+                </div>
+                <div class="quick-settings-content">
+                    <div class="setting-item">
+                        <label class="toggle">
+                            <input type="checkbox" id="quick-theme-toggle">
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-label">Dark Mode</span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label class="toggle">
+                            <input type="checkbox" id="quick-notifications">
+                            <span class="toggle-slider"></span>
+                            <span class="toggle-label">Notifications</span>
+                        </label>
+                    </div>
+                    <div class="setting-item">
+                        <label>Auto-Retry</label>
+                        <select id="quick-retry-setting">
+                            <option value="off">Off</option>
+                            <option value="once">Retry Once</option>
+                            <option value="three">Retry 3 Times</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="quick-settings-footer">
+                    <a href="settings.html" class="btn-link">All Settings</a>
+                </div>
+            </div>
+
+            <!-- Quick Actions Menu -->
+            <div class="quick-actions">
+                <button class="action-btn" data-tooltip="New Trial">
+                    <i class="fas fa-plus"></i>
+                </button>
+                <button class="action-btn" data-tooltip="Refresh Bots">
+                    <i class="fas fa-sync"></i>
+                </button>
+                <button class="action-btn" data-tooltip="Settings" onclick="toggleQuickSettings()">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-robot stat-icon"></i>
+                    <div class="stat-info">
+                        <h3>Total Bots</h3>
+                        <p>500+</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-clock stat-icon"></i>
+                    <div class="stat-info">
+                        <h3>Active Trials</h3>
+                        <p>127</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-users stat-icon"></i>
+                    <div class="stat-info">
+                        <h3>Users</h3>
+                        <p>10,500+</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-check-circle stat-icon"></i>
+                    <div class="stat-info">
+                        <h3>Success Rate</h3>
+                        <p>98.5%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="categories-section">
+                <h2>Popular Categories</h2>
+                <div class="category-grid">
+                    <div class="category-card">
+                        <i class="fas fa-video"></i>
+                        <h3>Streaming</h3>
+                        <p>85 bots</p>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-laptop-code"></i>
+                        <h3>Development</h3>
+                        <p>120 bots</p>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-gamepad"></i>
+                        <h3>Gaming</h3>
+                        <p>95 bots</p>
+                    </div>
+                    <div class="category-card">
+                        <i class="fas fa-music"></i>
+                        <h3>Music</h3>
+                        <p>75 bots</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Featured Bots -->
+            <div class="featured-bots">
+                <div class="section-header">
+                    <h2>Featured Bots</h2>
+                    <button class="btn-secondary">View All</button>
+                </div>
+                <div class="bot-grid">
+                    <div class="bot-card">
+                        <div class="bot-header">
+                            <img src="assets/netflix-icon.png" alt="Netflix Bot" class="bot-icon">
+                            <span class="bot-status active">Active</span>
+                        </div>
+                        <h3>Netflix Trial Bot</h3>
+                        <p>Automated Netflix trial account creation with premium features</p>
+                        <div class="bot-stats">
+                            <span><i class="fas fa-user-check"></i> 98% success</span>
+                            <span><i class="fas fa-clock"></i> 30-day trial</span>
+                        </div>
+                        <button class="btn-primary btn-full">Launch Bot</button>
+                    </div>
+                    <div class="bot-card">
+                        <div class="bot-header">
+                            <img src="assets/spotify-icon.png" alt="Spotify Bot" class="bot-icon">
+                            <span class="bot-status active">Active</span>
+                        </div>
+                        <h3>Spotify Premium Bot</h3>
+                        <p>Get Spotify Premium trials automatically with region switching</p>
+                        <div class="bot-stats">
+                            <span><i class="fas fa-user-check"></i> 95% success</span>
+                            <span><i class="fas fa-clock"></i> 90-day trial</span>
+                        </div>
+                        <button class="btn-primary btn-full">Launch Bot</button>
+                    </div>
+                    <div class="bot-card">
+                        <div class="bot-header">
+                            <img src="assets/adobe-icon.png" alt="Adobe Bot" class="bot-icon">
+                            <span class="bot-status active">Active</span>
+                        </div>
+                        <h3>Adobe CC Bot</h3>
+                        <p>Creative Cloud trial automation with full suite access</p>
+                        <div class="bot-stats">
+                            <span><i class="fas fa-user-check"></i> 92% success</span>
+                            <span><i class="fas fa-clock"></i> 7-day trial</span>
+                        </div>
+                        <button class="btn-primary btn-full">Launch Bot</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Activity -->
+            <div class="recent-activity">
+                <div class="section-header">
+                    <h2>Recent Activity</h2>
+                    <button class="btn-secondary">See All</button>
+                </div>
+                <div class="activity-list">
+                    <div class="activity-item">
+                        <i class="fas fa-check-circle success"></i>
+                        <div class="activity-info">
+                            <h4>Netflix Trial Created</h4>
+                            <p>Successfully created new trial account</p>
+                        </div>
+                        <span class="activity-time">2 min ago</span>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-robot primary"></i>
+                        <div class="activity-info">
+                            <h4>New Bot Added</h4>
+                            <p>Disney+ trial bot added to collection</p>
+                        </div>
+                        <span class="activity-time">1 hour ago</span>
+                    </div>
+                    <div class="activity-item">
+                        <i class="fas fa-sync warning"></i>
+                        <div class="activity-info">
+                            <h4>Bot Updated</h4>
+                            <p>Spotify bot updated to version 2.1</p>
+                        </div>
+                        <span class="activity-time">3 hours ago</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+    <script src="js/quick-settings.js"></script>
+
+    <script>
+        // Listen for settings changes
+        document.addEventListener('settingChanged', (e) => {
+            const { setting, value } = e.detail;
+            
+            // Update app based on setting changes
+            switch (setting) {
+                case 'theme':
+                    // Theme changes are handled automatically by quick-settings.js
+                    break;
+                case 'notifications':
+                    // Update notification preferences in the app
+                    app.updateNotificationPreferences(value);
+                    break;
+                case 'autoRetry':
+                    // Update retry settings for bots
+                    app.updateBotRetrySettings(value);
+                    break;
+            }
+        });
+
+        // Initialize quick settings panel position
+        document.addEventListener('DOMContentLoaded', () => {
+            const topBar = document.querySelector('.top-bar');
+            if (topBar) {
+                const panel = document.getElementById('quick-settings-panel');
+                panel.style.top = `${topBar.offsetHeight + 20}px`;
+            }
+        });
+    </script>
+</body>
+</html>

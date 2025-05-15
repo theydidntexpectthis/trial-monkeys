@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bot Details - Trial Bot Explorer</title>
+    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/bots.css">
+    <link rel="stylesheet" href="css/bot-details.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Sidebar Navigation -->
+        <nav class="sidebar">
+            <div class="sidebar-header">
+                <img src="assets/logo.png" alt="Trial Bot Explorer" class="logo">
+                <h1>Trial Bot Explorer</h1>
+            </div>
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="dashboard.html"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="active">
+                    <a href="bots.html"><i class="fas fa-robot"></i> My Bots</a>
+                </li>
+                <li>
+                    <a href="history.html"><i class="fas fa-history"></i> Trial History</a>
+                </li>
+                <li>
+                    <a href="settings.html"><i class="fas fa-cog"></i> Settings</a>
+                </li>
+            </ul>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <!-- Bot Header -->
+            <div class="bot-header">
+                <div class="bot-info">
+                    <img src="" alt="" class="bot-icon" id="bot-icon">
+                    <div class="bot-title">
+                        <h1 id="bot-name"></h1>
+                        <span class="bot-status" id="bot-status"></span>
+                    </div>
+                </div>
+                <div class="bot-actions">
+                    <button class="btn-primary" id="launch-bot">
+                        <i class="fas fa-play"></i> Launch Bot
+                    </button>
+                    <button class="btn-secondary" id="edit-bot">
+                        <i class="fas fa-edit"></i> Edit
+                    </button>
+                    <button class="btn-danger" id="delete-bot">
+                        <i class="fas fa-trash"></i> Delete
+                    </button>
+                </div>
+            </div>
+
+            <!-- Bot Statistics -->
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Success Rate</h3>
+                        <p id="success-rate">0%</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Average Runtime</h3>
+                        <p id="avg-runtime">0s</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Total Runs</h3>
+                        <p id="total-runs">0</p>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="stat-info">
+                        <h3>Health Status</h3>
+                        <p id="health-status">Healthy</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bot Monitoring -->
+            <div class="monitoring-section">
+                <h2>Real-time Monitoring</h2>
+                <div class="monitoring-grid">
+                    <div class="monitoring-card">
+                        <canvas id="success-rate-chart"></canvas>
+                    </div>
+                    <div class="monitoring-card">
+                        <canvas id="response-time-chart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bot Configuration -->
+            <div class="config-section">
+                <h2>Configuration</h2>
+                <div class="config-grid">
+                    <div class="config-card">
+                        <h3>Basic Settings</h3>
+                        <div class="config-item">
+                            <label>Auto Retry</label>
+                            <div class="toggle">
+                                <input type="checkbox" id="auto-retry">
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </div>
+                        <div class="config-item">
+                            <label>Retry Attempts</label>
+                            <select id="retry-attempts">
+                                <option value="1">1 attempt</option>
+                                <option value="3">3 attempts</option>
+                                <option value="5">5 attempts</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="config-card">
+                        <h3>Proxy Settings</h3>
+                        <div class="config-item">
+                            <label>Use Proxy</label>
+                            <div class="toggle">
+                                <input type="checkbox" id="use-proxy">
+                                <span class="toggle-slider"></span>
+                            </div>
+                        </div>
+                        <div class="config-item">
+                            <label>Proxy Type</label>
+                            <select id="proxy-type">
+                                <option value="browser">Browser</option>
+                                <option value="datacenter">Datacenter</option>
+                                <option value="residential">Residential</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Activity Logs -->
+            <div class="logs-section">
+                <div class="section-header">
+                    <h2>Activity Logs</h2>
+                    <div class="log-actions">
+                        <select id="log-level">
+                            <option value="all">All Levels</option>
+                            <option value="info">Info</option>
+                            <option value="warning">Warning</option>
+                            <option value="error">Error</option>
+                        </select>
+                        <button class="btn-secondary" id="export-logs">
+                            <i class="fas fa-download"></i> Export Logs
+                        </button>
+                    </div>
+                </div>
+                <div class="log-container" id="log-container">
+                    <!-- Logs will be dynamically inserted here -->
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- Edit Bot Modal -->
+    <div class="modal" id="edit-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Edit Bot Configuration</h2>
+                <button class="close-btn"><i class="fas fa-times"></i></button>
+            </div>
+            <div class="modal-body">
+                <form id="edit-bot-form">
+                    <div class="form-group">
+                        <label>Bot Name</label>
+                        <input type="text" id="edit-bot-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Description</label>
+                        <textarea id="edit-bot-description"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>Notification Settings</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox">
+                                <input type="checkbox" id="notify-success">
+                                Success Notifications
+                            </label>
+                            <label class="checkbox">
+                                <input type="checkbox" id="notify-failure">
+                                Failure Notifications
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-secondary" onclick="closeEditModal()">Cancel</button>
+                <button class="btn-primary" onclick="saveBot()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/dashboard.js"></script>
+    <script src="js/bot-details.js"></script>
+</body>
+</html>

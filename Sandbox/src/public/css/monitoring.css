@@ -1,0 +1,328 @@
+/* Monitoring Dashboard Styles */
+
+/* Overview Grid */
+.overview-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    margin-bottom: var(--spacing-xl);
+}
+
+.overview-card {
+    background-color: white;
+    padding: var(--spacing-lg);
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.overview-icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+}
+
+.overview-icon.success {
+    background-color: rgba(34, 197, 94, 0.1);
+    color: var(--success-color);
+}
+
+.overview-icon.warning {
+    background-color: rgba(234, 179, 8, 0.1);
+    color: var(--warning-color);
+}
+
+.overview-icon.info {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--primary-color);
+}
+
+.overview-icon.primary {
+    background-color: rgba(79, 70, 229, 0.1);
+    color: var(--primary-color);
+}
+
+.overview-info h3 {
+    font-size: 0.875rem;
+    color: var(--secondary-color);
+    margin: 0;
+}
+
+.overview-info p {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: var(--spacing-xs) 0 0 0;
+}
+
+/* Monitoring Section */
+.monitoring-section {
+    background-color: white;
+    padding: var(--spacing-lg);
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--spacing-xl);
+}
+
+.section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-lg);
+}
+
+.monitoring-actions {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.chart-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.chart-card {
+    background-color: var(--background-light);
+    padding: var(--spacing-lg);
+    border-radius: 0.5rem;
+    min-height: 300px;
+}
+
+.chart-card h3 {
+    margin: 0 0 var(--spacing-md) 0;
+    color: var(--text-dark);
+    font-size: 1rem;
+}
+
+/* Health Section */
+.health-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.health-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--spacing-lg);
+}
+
+.health-card {
+    background-color: white;
+    padding: var(--spacing-lg);
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.health-status {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-bottom: var(--spacing-md);
+}
+
+.status-indicator {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+}
+
+.status-indicator.healthy {
+    background-color: var(--success-color);
+}
+
+.status-indicator.warning {
+    background-color: var(--warning-color);
+}
+
+.status-indicator.error {
+    background-color: var(--danger-color);
+}
+
+/* Issues Section */
+.issues-section {
+    background-color: white;
+    padding: var(--spacing-lg);
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--spacing-xl);
+}
+
+.issue-filters {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.issues-table {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: var(--spacing-md);
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    font-weight: 500;
+    color: var(--secondary-color);
+}
+
+.severity-badge {
+    padding: 4px 8px;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+}
+
+.severity-badge.high {
+    background-color: rgba(239, 68, 68, 0.1);
+    color: var(--danger-color);
+}
+
+.severity-badge.medium {
+    background-color: rgba(234, 179, 8, 0.1);
+    color: var(--warning-color);
+}
+
+.severity-badge.low {
+    background-color: rgba(59, 130, 246, 0.1);
+    color: var(--primary-color);
+}
+
+/* Metrics Section */
+.metrics-section {
+    margin-bottom: var(--spacing-xl);
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--spacing-lg);
+}
+
+.metric-card {
+    background-color: white;
+    padding: var(--spacing-lg);
+    border-radius: 0.5rem;
+    box-shadow: var(--shadow-sm);
+}
+
+.metric-chart {
+    height: 200px;
+}
+
+/* Alert Sidebar */
+.alert-sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100vh;
+    background-color: white;
+    box-shadow: var(--shadow-lg);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.alert-sidebar.show {
+    transform: translateX(0);
+}
+
+.alert-header {
+    padding: var(--spacing-lg);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.alert-list {
+    padding: var(--spacing-md);
+    overflow-y: auto;
+    height: calc(100vh - 70px);
+}
+
+.alert-item {
+    padding: var(--spacing-md);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.alert-item:last-child {
+    border-bottom: none;
+}
+
+.alert-time {
+    font-size: 0.75rem;
+    color: var(--secondary-color);
+}
+
+.alert-message {
+    margin: var(--spacing-xs) 0;
+    color: var(--text-dark);
+}
+
+/* Dark Theme Support */
+[data-theme="dark"] .overview-card,
+[data-theme="dark"] .monitoring-section,
+[data-theme="dark"] .health-card,
+[data-theme="dark"] .issues-section,
+[data-theme="dark"] .metric-card,
+[data-theme="dark"] .alert-sidebar {
+    background-color: var(--background-dark);
+}
+
+[data-theme="dark"] .chart-card {
+    background-color: #2d3748;
+}
+
+[data-theme="dark"] th {
+    color: var(--text-light);
+}
+
+[data-theme="dark"] td {
+    border-color: #4a5568;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .chart-grid,
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .alert-sidebar {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .monitoring-actions {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .monitoring-actions select,
+    .monitoring-actions button {
+        width: 100%;
+    }
+
+    .issue-filters {
+        flex-direction: column;
+        gap: var(--spacing-sm);
+    }
+
+    .issue-filters select {
+        width: 100%;
+    }
+}
